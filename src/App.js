@@ -1,10 +1,11 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import ForgotPassword from './pages/ForgotPassword.tsx';
-import Profile from './pages/Profile.tsx';
-import Explore from './pages/Explore.tsx';
-import SignIn from './pages/SignIn.tsx';
-import SignUp from './pages/SignUp.tsx';
-import Offers from './pages/Offers.tsx';
+import ForgotPassword from './pages/ForgotPassword';
+import Profile from './pages/Profile';
+import Explore from './pages/Explore';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Offers from './pages/Offers';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
@@ -12,12 +13,12 @@ function App() {
 			<h1>House Marketplace App</h1>
 			<Router>
 				<Routes>
-					<Route path='/' element={<Explore/>}/>
-					<Route path='/offers' element={<Offers/>}/>
-					<Route path='/profile' element={<Profile/>}/>
-					<Route path='/sign-in' element={<SignIn/>}/>
-					<Route path='/sign-up' element={<SignUp/>}/>
-					<Route path='/forgot-password' element={<ForgotPassword/>}/>
+					<Route exact path='/' element={<Explore/>}/>
+					<Route exact path='/offers' element={<Offers/>}/>
+					<Route exact path='/profile' element={<Profile/>}/>
+					<Route exact path='/sign-in' element={<SignIn/>}/>
+					<Route exact path='/sign-up' element={<SignUp/>}/>
+					<Route exact path='/forgot-password' element={<ForgotPassword/>}/>
 				</Routes>
 			</Router>
     </>
