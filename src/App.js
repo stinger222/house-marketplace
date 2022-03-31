@@ -1,11 +1,11 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import ForgotPassword from './pages/ForgotPassword';
-import Profile from './pages/Profile';
-import Explore from './pages/Explore';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-import Offers from './pages/Offers';
-import Navbar from './components/Navbar/Navbar';
+import ForgotPassword from './pages/ForgotPassword'
+import Profile from './pages/Profile'
+import Explore from './pages/Explore'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import Offers from './pages/Offers'
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
 				<Navbar/>
 			</Router>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

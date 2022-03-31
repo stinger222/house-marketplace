@@ -1,4 +1,4 @@
-import NavbarItem from './NavbarItem';
+import NavbarItem from './NavbarItem'
 import { ReactComponent as OfferIcon } from '../../assets/svg/localOfferIcon.svg'
 import { ReactComponent as ExploreIcon } from '../../assets/svg/exploreIcon.svg'
 import { ReactComponent as PersonOutline } from '../../assets/svg/personOutlineIcon.svg'
