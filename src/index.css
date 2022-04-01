@@ -211,7 +211,7 @@ button {
 .showPassword {
   cursor: pointer;
   position: absolute;
-  top: -4%;
+  top: -1.5%;
   right: 1%;
   padding: 1rem;
 }
@@ -238,7 +238,7 @@ button {
 .signUpText {
   cursor: pointer;
 }
-@media (min-width: 1024px) {
+@media (min-width: 550px) {
   .signInBar,
   .signUpBar {
     justify-content: start;
@@ -261,7 +261,7 @@ button {
   background-color: #00cc66;
   border-radius: 50%;
 }
-@media (min-width: 1024px) {
+@media (min-width: 550px) {
   .signInButton,
   .signUpButton {
     margin-left: 3rem;
