@@ -1,7 +1,12 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 import {ReactComponent as ArrowRightIcon} from '../assets/svg/keyboardArrowRightIcon.svg'
+import { app, db } from '../firebase.config'
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
+
+
 
 export default function SignUp() {
 
@@ -12,6 +17,7 @@ export default function SignUp() {
 		password: ''
 	})
 	const { name, email, password } = formData
+	const navigate = useNavigate()
 
 	const onChange = (e) => {
 		setFormData({
@@ -20,13 +26,36 @@ export default function SignUp() {
 		})
 	}
 
+	const onSubmit = async (e) => {
+		e.preventDefault()
+		try {
+			const auth = getAuth(app)
+			const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+			const user = userCredentials.user
+
+			updateProfile(user, {
+				displayName: name
+			})
+
+			const formDataCopy = {...formData}
+			delete formDataCopy.password
+			formDataCopy.timestamp = serverTimestamp()
+
+			await setDoc(doc(db, 'users', user.uid), formDataCopy)
+
+			navigate('/')
+		} catch (error) {
+			console.error(error);
+		}
+	}
+
 	return (
 		<>
 			<div className='pageContainer'>
 				<header>
 					<p className='pageHeader'>Welcome</p>
 				</header>
-				<form>
+				<form onSubmit={onSubmit}>
 					<input
 						className='nameInput'
 						placeholder='Name'
